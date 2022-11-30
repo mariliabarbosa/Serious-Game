@@ -44,6 +44,7 @@ button:disabled{
 
 h1{
     font-size: 4rem;
+    margin-bottom: 1rem;
 }
 h2{
     font-size: 3rem;
@@ -52,4 +53,15 @@ h2{
 
 p{
     font-size: 1.25rem;
+    color: #726b6b;
+}
+
+.bem-vindo{
+    color: #726b6b;
+}
+
+.pontuacao{
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+    font-size: 5rem;
 }
