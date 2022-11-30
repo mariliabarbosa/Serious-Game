@@ -26,6 +26,9 @@ button{
     font-size: 16px;
     border-radius: 15px;
 }
+button:hover{
+    cursor: pointer;
+}
 
 button:disabled{
     background-color: #28965A;
