@@ -1,14 +1,10 @@
-function comecar(){
-    window.location='./questao-01.html'
-}
-
 function errou(pagina){
     mostrarBotao(pagina)    
     document.querySelector(".acertou").setAttribute('disabled','disabled')
 }
 
 function acertou(pagina){
-    pontuacao_atual = Number(localStorage.getItem("pontuacao"))
+    let pontuacao_atual = Number(localStorage.getItem("pontuacao"))
     
     mostrarBotao(pagina)
     pontuar(pontuacao_atual)
@@ -19,7 +15,7 @@ function mostrarBotao(pagina){
         return
     }
 
-    botao = document.createElement("button")
+    let botao = document.createElement("button")
     botao.className = 'prosseguir'
 
     if(pagina == 9){
@@ -39,6 +35,25 @@ function pontuar(pontuacao_atual){
 }
 
 function mostrarPontuacao(){
-    pontuacao = Number(localStorage.getItem("pontuacao"))
+    let pontuacao = Number(localStorage.getItem("pontuacao"))
     document.querySelector(".pontuacao").innerText = pontuacao
+}
+
+function perdeu(pagina){
+    let pontuacao = Number(localStorage.getItem("pontuacao"))
+    if(pontuacao < pagina-3){
+        localStorage.setItem("status", "perdeu")
+        window.location = 'tela-final.html'
+    }
+}
+
+function mostrarTelaDerrota(){
+    let status = localStorage.getItem("status")
+
+    if(status == "perdeu"){
+        console.log('oi')
+        document.querySelector(".mensagem").innerText = 'Você errou mais de 3 questões'
+        document.querySelector(".pontuacao").innerText = 'Tente novamente'
+        document.querySelector(".pontuacao").style = 'color: #DB162F'
+    }
 }
